@@ -548,4 +548,4 @@ code = requests.get(currentPageUrl).status_code
 print("自主审批项目用时审批表状态码校验:{}".format(code))   # 获取当前URL的状态码
 driver.refresh()   #刷新整个页面
 time.sleep(5)
-driver.close()  # 关闭进程
+driver.quit()  # 关闭进程
