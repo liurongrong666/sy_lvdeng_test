@@ -3,7 +3,7 @@ import requests
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
-
+import logging
 driver = webdriver.Chrome()  # 打开谷歌浏览器
 driver.get("https://sy-dev.joysfintech.com/joys/login/pc_index.html?from=https%3A%2F%2Fsy-dev.joysfintech.com%2Fjoys%2Fpc_index.html%23%2F#/")  # 输入网址
 driver.implicitly_wait(10)
@@ -84,12 +84,12 @@ try:
 except NoSuchElementException:
     print("未取到刷新按钮元素")
 driver.find_element_by_xpath("//*[text()='单位客户']").click()
+time.sleep(2)
 driver.find_element_by_xpath("/html/body/div/div[2]/div[2]/form/div[2]/button[1]").click() #点击取消按钮
 driver.find_element_by_xpath('/html/body/div/div[2]/div[2]/div/div[1]/div[1]/div/div[1]/button/span').click()  #点击新建按钮，在下拉框中选择单位客户
 time.sleep(2)
 driver.find_element_by_xpath("//*[text()='个人客户']").click()
 driver.find_element_by_xpath("/html/body/div/div[2]/div[2]/form/div[2]/button[1]").click()
-
 # currentPageUrl = driver.current_url
 # print("当前页面的url是：", currentPageUrl)     # 获取当前URL地址
 # code = requests.get(currentPageUrl).status_code
